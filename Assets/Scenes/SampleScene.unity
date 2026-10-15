@@ -129,6 +129,8 @@ GameObject:
   m_Component:
   - component: {fileID: 148783667}
   - component: {fileID: 148783668}
+  - component: {fileID: 148783669}
+  - component: {fileID: 148783670}
   m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
@@ -211,6 +213,40 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
+--- !u!95 &148783669
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 148783666}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c055a0caca3d7c840a2beb0481169b23, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &148783670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 148783666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d5ba49509d4c3b4189eb75abe58dd47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScienceProject.PlayerSystem.PlayerAnimation
 --- !u!1 &416767606
 GameObject:
   m_ObjectHideFlags: 0
@@ -346,6 +382,10 @@ GameObject:
   m_Component:
   - component: {fileID: 479396523}
   - component: {fileID: 479396521}
+  - component: {fileID: 479396527}
+  - component: {fileID: 479396526}
+  - component: {fileID: 479396525}
+  - component: {fileID: 479396524}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -376,10 +416,10 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_CollisionDetection: 1
+  m_Constraints: 4
 --- !u!4 &479396523
 Transform:
   m_ObjectHideFlags: 0
@@ -396,6 +436,93 @@ Transform:
   - {fileID: 148783667}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &479396524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 479396520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5669f3c75e3dbb94c9c0761062fd973c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScienceProject.PlayerSystem.Player
+  playerInput: {fileID: 479396526}
+  playerMove: {fileID: 479396525}
+  playerAnimation: {fileID: 148783670}
+--- !u!114 &479396525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 479396520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c5e555627a6d214f908fb4af0ada1a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScienceProject.PlayerSystem.PlayerMove
+  moveSpeed: 5
+--- !u!114 &479396526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 479396520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b91ac427888354f49a373c5da6ad6dac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScienceProject.PlayerSystem.PlayerInput
+  moveAction: {fileID: 11400000, guid: 65b61d265fdaba345b807e4110efc5db, type: 2}
+--- !u!61 &479396527
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 479396520}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: -0.25}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.55, y: 0.5}
+  m_EdgeRadius: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
