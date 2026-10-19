@@ -1,9 +1,12 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Balpancoll : MonoBehaviour
 {
     [SerializeField] private Sprite onButtonSprite; 
     [SerializeField] private Sprite offButtonSprite;
+    
     private SpriteRenderer _spriteRenderer;
 
     private void Awake()
@@ -25,6 +28,7 @@ public class Balpancoll : MonoBehaviour
     {
         Debug.Log("버튼 작동함");
         _spriteRenderer.sprite = onButtonSprite;
+       
     }
 
     private void OffElectricityButton()

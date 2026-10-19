@@ -1,16 +1,15 @@
 using System;
 using UnityEngine;
 
-public class PlayerElectricity : MonoBehaviour
+public class PlayerElectricity : MonoBehaviour,IElectricity
 {
-   public float electricity = 0;
-   public static PlayerElectricity Instance;
+   private float maxElectricity = 1000;
+   private float minElectricity = 0;
+   public float CurrentElectricity { get => electricity; }
+   public float electricity { get; private  set; }
 
-   private void Awake()
+   public void SetElectricity(float value)
    {
-      if (Instance == null)
-         Instance = this;
+      electricity += value;
    }
-   
-   
 }
